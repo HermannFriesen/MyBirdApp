@@ -2,32 +2,34 @@ import SwiftUI
 import Shared
 
 struct ContentView: View {
-    @State private var showContent = false
+    
+    @ObservedObject var viewModel = BirdViewModel()
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+
     var body: some View {
-        VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 8) {
+                if viewModel.images.isEmpty {
+                    ForEach(0..<10, id: \.self) { _ in
+                        Text("Loading...")
+                    }
+                } else {
+                    ForEach(viewModel.images, id: \.self) { image in
+                        ImageCard(image: image)
+                    }
                 }
             }
-
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    Text("SwiftUI: \(Greeting().greet())")
-                }
-                .transition(.move(edge: .top).combined(with: .opacity))
-            }
+            .padding(.horizontal)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(viewModel: ContentView.ViewModel())
+//    }
+//}

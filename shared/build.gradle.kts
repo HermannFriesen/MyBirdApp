@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    kotlin("plugin.serialization") version "2.0.0"
+    id("co.touchlab.skie") version "0.9.2"
 }
 
 kotlin {
@@ -28,15 +30,36 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+
+            //Coil
+            implementation(libs.coil3.coil.compose)
+            implementation(libs.coil.network.ktor)
+
+            //Ktor
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.coroutines.core)
+
+            //KOIN
+            api(libs.koin.core)
+            implementation(libs.koin.test)
+            implementation(libs.koin.compose.multiplatform)
+
+            //Date
+            implementation(libs.kotlinx.datetime)
+
         }
         androidMain.dependencies {
+
+            //Ktor
             implementation(libs.ktor.client.okhttp)
+
+            //KOIN
+            implementation(libs.koin.androidx.compose)
         }
         iosMain.dependencies {
+            //Ktor
             implementation(libs.ktor.client.darwin)
         }
     }

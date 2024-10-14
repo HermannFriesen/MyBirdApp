@@ -24,8 +24,9 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.kotlinx.coroutines.android)
 
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.lifecycle.runtime.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -38,13 +39,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(projects.shared)
             implementation(libs.kotlinx.coroutines.android)
-            implementation(project.dependencies.platform(libs.koin.core ))
+            implementation(libs.coil3.coil.compose)
+            implementation(libs.coil.network.ktor)
 
-            api(libs.koin.core)
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viewmodel)
-            implementation(libs.lifecycle.viewmodel)
-            implementation(libs.navigation.compose)
+
         }
     }
 }
