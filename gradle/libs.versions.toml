@@ -15,6 +15,7 @@ coil = " 2.5.0"
 coilCompose = "3.0.0-alpha06"
 compose-plugin = "1.6.11"
 junit = "4.13.2"
+kmpObservableviewmodelCore = "1.0.0-BETA-6"
 kotlin = "2.0.20"
 kotlinxDatetime = "0.6.0"
 ktor = "2.3.12"
@@ -24,6 +25,7 @@ koin-android = "4.0.0"
 koin-compose-multiplatform = "4.0.0"
 koin = "4.0.0"
 lifecycleViewmodelKtx = "2.8.6"
+lifecycleViewmodelAndroid = "2.8.6"
 
 [libraries]
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelKtx" }
@@ -32,6 +34,7 @@ coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coilCompose" }
 coil3-coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
+kmp-observableviewmodel-core = { module = "com.rickclephas.kmp:kmp-observableviewmodel-core" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -58,6 +61,8 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 koin-compose-multiplatform = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose-multiplatform" }
 lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
+rickclephas-kmp-observableviewmodel-core = { module = "com.rickclephas.kmp:kmp-observableviewmodel-core", version.ref = "kmpObservableviewmodelCore" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

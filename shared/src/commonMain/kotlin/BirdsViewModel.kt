@@ -1,7 +1,7 @@
 import Model.BirdImage
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.rickclephas.kmp.observableviewmodel.ViewModel
+import com.rickclephas.kmp.observableviewmodel.coroutineScope
+import com.rickclephas.kmp.observableviewmodel.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -12,7 +12,7 @@ data class BirdUiState(
 
 class BirdsViewModel: ViewModel() {
 
-    private val _uiState = MutableStateFlow<BirdUiState>(BirdUiState())
+    private val _uiState = MutableStateFlow<BirdUiState>(viewModelScope, BirdUiState())
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -24,7 +24,7 @@ class BirdsViewModel: ViewModel() {
     }
 
     fun updateImages() {
-        viewModelScope.launch {
+        viewModelScope.coroutineScope.launch {
             val images = getBirdsFromRepo()
             _uiState.update { it.copy(images = images)
             }

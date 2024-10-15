@@ -17,6 +17,7 @@ struct ImageCard: View {
         AsyncImage(url: URL(string:"https://sebi.io/demo-image-api/\(image.path)")) { image in
             image
                 .resizable()
+                .clipped()
         } placeholder: {
             Image(systemName: "photo")
                 .resizable()

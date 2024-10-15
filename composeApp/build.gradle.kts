@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -24,9 +23,9 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.kotlinx.coroutines.android)
 
-            implementation(libs.androidx.lifecycle.viewmodel.ktx)
-            implementation(libs.lifecycle.runtime.compose)
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
+//            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+//            implementation(libs.lifecycle.runtime.compose)
+//            implementation(libs.androidx.lifecycle.viewmodel.compose)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -35,12 +34,14 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
+//            implementation(libs.androidx.lifecycle.viewmodel)
+//            implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(projects.shared)
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.coil3.coil.compose)
             implementation(libs.coil.network.ktor)
+            api(libs.kmp.observableviewmodel.core)
+
 
 
         }

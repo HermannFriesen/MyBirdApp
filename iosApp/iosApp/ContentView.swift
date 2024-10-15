@@ -1,9 +1,10 @@
 import SwiftUI
 import Shared
+import KMPObservableViewModelSwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel = BirdViewModel()
+    @ObservedViewModel var viewModel = BirdsViewModel()
     
     let columns = [
         GridItem(.flexible()),
@@ -13,12 +14,12 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 8) {
-                if viewModel.images.isEmpty {
+                if viewModel.uiState.value.images.isEmpty {
                     ForEach(0..<10, id: \.self) { _ in
                         Text("Loading...")
                     }
                 } else {
-                    ForEach(viewModel.images, id: \.self) { image in
+                    ForEach(viewModel.uiState.value.images, id: \.self) { image in
                         ImageCard(image: image)
                     }
                 }
